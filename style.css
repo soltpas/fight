@@ -37,6 +37,10 @@ canvas {
   border: 1px solid #000;
   padding: 5px;
 }
+.choosecharacter {
+display: flex;
+}
 .choose {
 display: flex;
+justify-content: center;
 }
