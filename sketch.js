@@ -9,6 +9,7 @@ let pp2 = 0;
 let pc1 = "";
 let pc2 = "";
 let sb;
+let clock;
 
 function preload() {
 }
