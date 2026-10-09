@@ -13,35 +13,30 @@ let pa2 = 0;
 let paa1 = 0;
 let paa2 = 0;
 let sb;
-let clock;
+let pi1;
+let pi2;
 
 function preload() {
+    pi1 = loadImage("clock.png");
+    pi2 = loadImage("clock.png");
 }
 
 function setup() {
-    createCanvas(1500, 800);
+    createCanvas(1500, 170);
 }
 
 function draw() {
     background(250,250,250,50)
     textSize(30);
     fill("red");
-    text("HP: " + ph1, 0, 50);
-    text("ATTACK: " + pa1 + "〜" + paa1, 0, 100);
-    text("SPEED: " + ps1, 0, 150);
-    text("POINTS: " + pp1, 0, 200);
-    text("CHARACTER: " + pc1, 0, 750);
+    text("HP: " + ph1 + " ,ATTACK: " + pa1 + "〜" + paa1 + " ,SPEED: " + ps1 + " ,POINTS: " + pp1 + " ,CHARACTER: " + pc1, 0, 50);
     if (t == 0) {
-        text("your turn", 0, 250);
+        text("Player 1's turn", 0, 150);
     }
     fill("blue");
-    text("HP: " + ph2, 1200, 50);
-    text("ATTACK: " + pa2 + "〜" + paa2, 1200, 100);
-    text("SPEED: " + ps2, 1200, 150);
-    text("POINTS: " + pp2, 1200, 200);
-    text("CHARACTER: " + pc2, 1200, 750);
+    text("HP: " + ph2 + " ,ATTACK: " + pa2 + "〜" + paa2 + " ,SPEED: " + ps2 + " ,POINTS: " + pp2 + " ,CHARACTER: " + pc2, 0, 100);
     if (t == 1) {
-        text("your turn", 1200, 250);
+        text("Player 2's turn", 0, 150);
     }
 }
 
@@ -69,6 +64,10 @@ function clickclock() {
         pa1 = 5;
         paa1 = 10;
         pc1 = "clock";
+        document.getElementById("anime1").style.setProperty(
+            "--pi1-image",
+            `url("${pi1.canvas.toDataURL()}")`
+        );
         t = 1;
     } else {
         ph2 = 100;

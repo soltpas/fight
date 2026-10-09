@@ -44,3 +44,18 @@ display: flex;
 display: flex;
 justify-content: center;
 }
+#anime1{
+    height: 200px;
+    width: 200px;
+    background-image: var(--pi1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: 0;
+    transition: 2.5s;
+}
+#anime1.attack {
+    background-color: #2196F3;
+    left: calc(100% - 100px);
+}
