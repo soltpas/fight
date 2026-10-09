@@ -13,6 +13,28 @@ let pa2 = 0;
 let paa1 = 0;
 let paa2 = 0;
 let sb;
+let time;
+let d;
+let ae = function attackeffect(){
+    if(t == 0){
+        document.getElementById("ae1").style.display = "";
+        target = document.getElementById("attackeffect1");
+        if (target.className == null || target.className=="") {
+            target.className = "active";
+        } else {
+            target.className = "";
+        }
+    }
+    if(t == 1){
+        document.getElementById("ae2").style.display = "";
+        target = document.getElementById("attackeffect2");
+        if (target.className == null || target.className=="") {
+            target.className = "active";
+        } else {
+            target.className = "";
+        }
+    }
+};
 
 function setup() {
     createCanvas(1500, 170);
@@ -61,6 +83,10 @@ function clickclock() {
             "--pi1-image",
             'url("clock.png")'
         );
+        document.getElementById("ae1").style.setProperty(
+            "--pia1-image",
+            'url("clocka.png")'
+        );
         t = 1;
     } else {
         ph2 = 100;
@@ -81,15 +107,20 @@ function clickclock() {
 
 function clickattack() {
     if (t == 0){
+        time = millis();
         target = document.getElementById("anime1");
          if (target.className == null || target.className=="") {
          target.className = "attack";
         }
+        d = floor(random(pa1,paa1+1));
+
     }
     if (t == 1){
+        time = millis();
         target = document.getElementById("anime2");
          if (target.className == null || target.className=="") {
          target.className = "attack";
         }
+        d = floor(random(pa2,paa2+1));
     }
 }
