@@ -44,6 +44,10 @@ display: flex;
 display: flex;
 justify-content: center;
 }
+.choosec{
+  display: flex;
+  justify-content: space-between;
+}
 #anime1{
     height: 200px;
     width: 200px;
@@ -53,9 +57,38 @@ justify-content: center;
     background-position: center;
     position: relative;
     left: 0;
-    transition: 2.5s;
+    transition: 1s;
+}
+#anime2{
+    height: 200px;
+    width: 200px;
+    background-image: var(--pi2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: 0;
+    transition: 1s;
 }
 #anime1.attack {
-    background-color: #2196F3;
-    left: calc(100% - 100px);
+    height: 200px;
+    width: 200px;
+    background-image: var(--pi1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(50% - 200px);
+    transition: 1s;
+}
+#anime2.attack{
+    height: 200px;
+    width: 200px;
+    background-image: var(--pi2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(-50% + 200px);
+    transition: 1s;
 }

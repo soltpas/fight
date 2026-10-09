@@ -13,13 +13,6 @@ let pa2 = 0;
 let paa1 = 0;
 let paa2 = 0;
 let sb;
-let pi1;
-let pi2;
-
-function preload() {
-    pi1 = loadImage("clock.png");
-    pi2 = loadImage("clock.png");
-}
 
 function setup() {
     createCanvas(1500, 170);
@@ -66,7 +59,7 @@ function clickclock() {
         pc1 = "clock";
         document.getElementById("anime1").style.setProperty(
             "--pi1-image",
-            `url("${pi1.canvas.toDataURL()}")`
+            'url("clock.png")'
         );
         t = 1;
     } else {
@@ -76,6 +69,10 @@ function clickclock() {
         pa2 = 5;
         paa2 = 10;
         pc2 = "clock";
+        document.getElementById("anime2").style.setProperty(
+            "--pi2-image",
+            'url("clock.png")'
+        );
         m = 1;
         document.getElementById("clock-button").style.display = "none";
         speed();
@@ -83,4 +80,16 @@ function clickclock() {
 }
 
 function clickattack() {
+    if (t == 0){
+        target = document.getElementById("anime1");
+         if (target.className == null || target.className=="") {
+         target.className = "attack";
+        }
+    }
+    if (t == 1){
+        target = document.getElementById("anime2");
+         if (target.className == null || target.className=="") {
+         target.className = "attack";
+        }
+    }
 }
