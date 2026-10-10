@@ -55,7 +55,7 @@ justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    position: absolute;
     left: 0;
     transition: 1s;
 }
@@ -66,7 +66,7 @@ justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    position: absolute;
     left: 0;
     transition: 1s;
 }
@@ -77,7 +77,7 @@ justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    position: absolute;
     left: calc(50% - 200px);
     transition: 1s;
 }
@@ -88,51 +88,51 @@ justify-content: center;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: relative;
+    position: absolute;
     left: calc(-50% + 200px);
     transition: 1s;
 }
 #attackeffect2{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pia2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
+    position: relative;
     left: 0;
     transition: 1s;
 }
 attackeffect2.active{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pia2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
+    position: relative;
     left: 0;
     transition: 1s;
 }
 #attackeffect1{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pia1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
+    position: relative;
     left: 0;
     transition: 1s;
 }
 #attackeffect1.active{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pia1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    position: absolute;
+    position: relative;
     left: 0;
     transition: 1s;
 }
