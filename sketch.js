@@ -255,8 +255,10 @@ function clickskill() {
     }
 }
 
-function clockultimate() {
-    
+function clickultimate() {
+    if (w !== 0) {
+        return;
+    }
 }
 
 function clickclock() {
