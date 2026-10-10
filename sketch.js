@@ -256,64 +256,7 @@ function clickskill() {
 }
 
 function clockultimate() {
-    if (t == 0) {
-        d = floor(random(8, 14));
-        ph2 -= d;
-        log = "damage";
-        ps1 += floor(random(2, 5));
-        ps2 += floor(random(0, 3));
-        speed();
-    }
-    if (t == 1) {
-        d = floor(random(8, 14));
-        ph1 -= d;
-        log = "damage";
-        ps2 += floor(random(2, 5));
-        ps1 += floor(random(0, 3));
-        speed();
-    }
-}
-
-function clickultimate() {
-    if (w !== 0) {
-        return;
-    }
-    if (t == 0) {
-        if(pp1 >= 5){
-            log = "skill";
-            pp1 -= 5;
-            if(pc1 == "clock"){
-                clockultimate();
-            } else {
-                d = floor(random(5, 9));
-                ph2 -= d;
-                log = "damage";
-                ps1 += floor(random(1, 4));
-                ps2 += floor(random(0, 3));
-                speed();
-            }
-        } else {
-            log = "not enough points";
-        }
-    }
-    if (t == 1){
-        if(pp2 >= 5){
-            log = "skill";
-            pp2 -= 5;
-            if(pc2 == "clock"){
-                clockultimate();
-            } else {
-                d = floor(random(5, 9));
-                ph1 -= d;
-                log = "damage";
-                ps2 += floor(random(1, 4));
-                ps1 += floor(random(0, 3));
-                speed();
-            }
-        } else {
-            log = "not enough points";
-        }
-    }
+    
 }
 
 function clickclock() {
