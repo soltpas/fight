@@ -64,6 +64,20 @@ let aer = function attackeffectr(){
         }
     }
 };
+let aem = function attackeffectm(){
+    if(t == 0){
+        target = document.getElementById("attackeffectm1");
+        if (target.className == null || target.className=="") {
+            target.className = "active";
+        }
+    }
+    if(t == 1){
+        target = document.getElementById("attackeffectm2");
+        if (target.className == null || target.className=="") {
+            target.className = "active";
+        }
+    }
+};
 
 function setup() {
     createCanvas(1500, 170);
