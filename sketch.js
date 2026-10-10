@@ -1,7 +1,7 @@
 let m = 0;
 let t = 0;
-let ph1 = 0;
-let ph2 = 0;
+let ph1 = 1;
+let ph2 = 1;
 let ps1 = 0;
 let ps2 = 0;
 let pp1 = 0;
@@ -78,11 +78,49 @@ let aem = function attackeffectm(){
         }
     }
 };
+let cs1 = function clockskill1(){
+    target = document.getElementById("clock1");
+    if (target.className == null || target.className=="") {
+        target.className = "skill";
+    }
+    d = floor(random(3,6));
+    ph2 -= d;
+    log = "damage";
+    ps1 += floor(random(1,4));
+};
+let cs2 = function clockskill2(){
+    target = document.getElementById("clock2");
+    if (target.className == null || target.className=="") {
+        target.className = "skill";
+    }
+    d = floor(random(3,6));
+    ph1 -= d;
+    log = "damage";
+    ps2 += floor(random(1,4));
+};
+let cse1 = function clockskillend1(){
+    target = document.getElementById("clock1");
+    target.className = "";
+    document.getElementById("clock1").style.display = "none";
+    ps1 -= 3;
+    ps2 += floor(random(0,7));
+    speed();
+};
+let cse2 = function clockskillend2(){
+    target = document.getElementById("clock2");
+    target.className = "";
+    document.getElementById("clock2").style.display = "none";
+    ps2 -= 3;
+    ps1 += floor(random(0,7));
+    speed();
+}
 
 function setup() {
     createCanvas(1500, 170);
     document.getElementById("attackeffectr1").style.display = "none";
     document.getElementById("attackeffectr2").style.display = "none";
+    document.getElementById("clock1").style.display = "none";
+    document.getElementById("clock2").style.display = "none";
 }
 
 function draw() {
@@ -125,6 +163,9 @@ function draw() {
                 text("Player 2's skill", 500, 150);
             }
         }
+        if (log == "not enough points"){
+            text("Not enough points", 500, 150);
+        }
     }
     if (w == 1) {
         textSize(50);
@@ -155,6 +196,9 @@ function speed() {
 }
 
 function clickattack() {
+    if (w !== 0) {
+        return;
+    }
     if (t == 0){
         log = "attack";
         target = document.getElementById("anime1");
@@ -184,17 +228,100 @@ function clickattack() {
 }
 
 function clickskill() {
+    if (w !== 0) {
+        return;
+    }
     if (t == 0){
-        log = "skill";
+        if(pp1 >= 2){
+            log = "skill";
+            pp1 -= 2;
+            if(pc1 == "clock"){
+                clockskill();
+            }
+        } else {
+            log = "not enough points";
+        }
     }
     if (t == 1){
-        log = "skill";
+        if(pp2 >= 2){
+            log = "skill";
+            pp2 -= 2;
+            if(pc2 == "clock"){
+                clockskill();
+            }
+        } else {
+            log = "not enough points";
+        }
+    }
+}
+
+function clockultimate() {
+    if (t == 0) {
+        d = floor(random(8, 14));
+        ph2 -= d;
+        log = "damage";
+        ps1 += floor(random(2, 5));
+        ps2 += floor(random(0, 3));
+        speed();
+    }
+    if (t == 1) {
+        d = floor(random(8, 14));
+        ph1 -= d;
+        log = "damage";
+        ps2 += floor(random(2, 5));
+        ps1 += floor(random(0, 3));
+        speed();
+    }
+}
+
+function clickultimate() {
+    if (w !== 0) {
+        return;
+    }
+    if (t == 0) {
+        if(pp1 >= 5){
+            log = "skill";
+            pp1 -= 5;
+            if(pc1 == "clock"){
+                clockultimate();
+            } else {
+                d = floor(random(5, 9));
+                ph2 -= d;
+                log = "damage";
+                ps1 += floor(random(1, 4));
+                ps2 += floor(random(0, 3));
+                speed();
+            }
+        } else {
+            log = "not enough points";
+        }
+    }
+    if (t == 1){
+        if(pp2 >= 5){
+            log = "skill";
+            pp2 -= 5;
+            if(pc2 == "clock"){
+                clockultimate();
+            } else {
+                d = floor(random(5, 9));
+                ph1 -= d;
+                log = "damage";
+                ps2 += floor(random(1, 4));
+                ps1 += floor(random(0, 3));
+                speed();
+            }
+        } else {
+            log = "not enough points";
+        }
     }
 }
 
 function clickclock() {
+    if (w !== 0) {
+        return;
+    }
     if (t == 0) {
-        ph1 = 100;
+        ph1 = 80;
         ps1 = 10;
         pp1 = 0;
         pa1 = 5;
@@ -209,9 +336,13 @@ function clickclock() {
             "--pia1-image",
             'url("clocka.png")'
         );
+        document.getElementById("clock1").style.setProperty(
+            "--pia1-image",
+            'url("clocka.png")'
+        );
         t = 1;
     } else {
-        ph2 = 100;
+        ph2 = 80;
         ps2 = 10;
         pp2 = 0;
         pa2 = 5;
@@ -226,9 +357,37 @@ function clickclock() {
             "--pia2-image",
             'url("clocka.png")'
         );
+        document.getElementById("clock2").style.setProperty(
+            "--pia2-image",
+            'url("clocka.png")'
+        );
         m = 1;
         document.querySelector(".choosecharacter").style.display = "none";
         speed();
     }
 }
 
+function clockskill() {
+    if (t == 0) {
+        const clock = document.getElementById("clock1");
+        clock.style.display = "";
+        requestAnimationFrame(() => {
+            clock.className = "skill";
+        });
+        setTimeout(cs1,1000);
+        setTimeout(cs1,2000);
+        setTimeout(cs1,3000);
+        setTimeout(cse1,3500);
+    }
+    if (t == 1) {
+        const clock = document.getElementById("clock2");
+        clock.style.display = "";
+        requestAnimationFrame(() => {
+            clock.className = "skill";
+        });
+        setTimeout(cs2,1000);
+        setTimeout(cs2,2000);
+        setTimeout(cs2,3000);
+        setTimeout(cse2,3500);
+    }
+}

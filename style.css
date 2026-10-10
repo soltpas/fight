@@ -190,3 +190,56 @@ justify-content: center;
     left: calc(60%);
     transition: transform 1s;
 }
+
+#clock1{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(60%);
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 3s, left 3s;
+}
+#clock2{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(5%);
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 3s, left 3s;
+}
+#clock1.skill{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(60%);
+    transform: rotate(1080deg);
+    transform-origin: center center;
+    transition: transform 3s, left 3s;
+}
+#clock2.skill{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(5%);
+    transform: rotate(-1080deg);
+    transform-origin: center center;
+    transition: transform 3s, left 3s;
+}
