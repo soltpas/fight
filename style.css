@@ -49,8 +49,8 @@ justify-content: center;
   justify-content: space-between;
 }
 #anime1{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pi1-image);
     background-size: contain;
     background-repeat: no-repeat;
@@ -60,79 +60,133 @@ justify-content: center;
     transition: 1s;
 }
 #anime2{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pi2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    left: 0;
+    left: calc(70%);
     transition: 1s;
 }
 #anime1.attack {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pi1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    left: calc(50% - 200px);
+    left: calc(50% - 300px);
     transition: 1s;
 }
 #anime2.attack{
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     background-image: var(--pi2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    left: calc(-50% + 200px);
+    left: calc(50% - 300px);
     transition: 1s;
 }
-#attackeffect2{
-    height: 300px;
-    width: 300px;
+
+#attackeffectr2{
+    height: 400px;
+    width: 400px;
     background-image: var(--pia2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    left: 0;
-    transition: 1s;
+    left: calc(5%);
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
 }
-attackeffect2.active{
-    height: 300px;
-    width: 300px;
+#attackeffectr2.active{
+    height: 400px;
+    width: 400px;
     background-image: var(--pia2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    left: 0;
-    transition: 1s;
+    left: calc(5%);
+    transform: rotate(-180deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
 }
-#attackeffect1{
-    height: 300px;
-    width: 300px;
+#attackeffectr1{
+    height: 400px;
+    width: 400px;
     background-image: var(--pia1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    left: 0;
-    transition: 1s;
+    left: calc(60%);
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
 }
-#attackeffect1.active{
-    height: 300px;
-    width: 300px;
+#attackeffectr1.active{
+    height: 400px;
+    width: 400px;
     background-image: var(--pia1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    left: 0;
-    transition: 1s;
+    left: calc(60%);
+    transform: rotate(180deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+
+#attackeffectm2{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(50% - 300px);
+    transition: transform 1s;
+}
+#attackeffectm2.active{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(5%);
+    transition: transform 1s;
+}
+#attackeffectm1{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(50% - 300px);
+    transition: transform 1s;
+}
+#attackeffectm1.active{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(60%);
+    transition: transform 1s;
 }
