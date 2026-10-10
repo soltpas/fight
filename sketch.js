@@ -17,7 +17,7 @@ let time;
 let d;
 let ae = function attackeffect(){
     if(t == 0){
-        document.getElementById("ae1").style.display = "";
+        document.getElementById("attackeffect1").style.display = "";
         target = document.getElementById("attackeffect1");
         if (target.className == null || target.className=="") {
             target.className = "active";
@@ -26,7 +26,7 @@ let ae = function attackeffect(){
         }
     }
     if(t == 1){
-        document.getElementById("ae2").style.display = "";
+        document.getElementById("attackeffect2").style.display = "";
         target = document.getElementById("attackeffect2");
         if (target.className == null || target.className=="") {
             target.className = "active";
@@ -38,6 +38,8 @@ let ae = function attackeffect(){
 
 function setup() {
     createCanvas(1500, 170);
+    document.getElementById("attackeffect1").style.display = "none";
+    document.getElementById("attackeffect2").style.display = "none";
 }
 
 function draw() {
@@ -83,7 +85,7 @@ function clickclock() {
             "--pi1-image",
             'url("clock.png")'
         );
-        document.getElementById("ae1").style.setProperty(
+        document.getElementById("attackeffect1").style.setProperty(
             "--pia1-image",
             'url("clocka.png")'
         );
@@ -99,6 +101,7 @@ function clickclock() {
             "--pi2-image",
             'url("clock.png")'
         );
+        document.getElementById("attackeffect2")
         m = 1;
         document.getElementById("clock-button").style.display = "none";
         speed();
@@ -113,7 +116,7 @@ function clickattack() {
          target.className = "attack";
         }
         d = floor(random(pa1,paa1+1));
-
+        setTimeout(ae,1000);
     }
     if (t == 1){
         time = millis();
@@ -122,5 +125,6 @@ function clickattack() {
          target.className = "attack";
         }
         d = floor(random(pa2,paa2+1));
+        setTimeout(ae,1000);
     }
 }
