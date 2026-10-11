@@ -243,3 +243,94 @@ justify-content: center;
     transform-origin: center center;
     transition: transform 3s, left 3s;
 }
+#clocku{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(0deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.two{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(60deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.three{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(120deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.four{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(180deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.five{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(240deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.six{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(300deg);
+    transform-origin: center center;
+    transition: transform 1s, left 1s;
+}
+#clocku.seven{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pia1-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: calc(50% - 300px);
+    transform: rotate(360deg);
+    transform-origin: center center;
+    transition: transform 6s, left 6s;
+}

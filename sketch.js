@@ -12,11 +12,16 @@ let pa1 = 0;
 let pa2 = 0;
 let paa1 = 0;
 let paa2 = 0;
+let uc1 = 0;
+let uc2 = 0;
+let ucm1 = 0;
+let ucm2 = 0;
 let am1;
 let am2;
 let sb;
 let d;
 let log = "";
+let target;
 let w = 0;
 let dc1 = function damagecount1(){
     target = document.getElementById("attackeffectr1");
@@ -27,9 +32,11 @@ let dc1 = function damagecount1(){
     document.getElementById("attackeffectm1").style.display = "none";
     target = document.getElementById("anime1");
             target.className = "";
+    document.getElementById("clocku").style.display = "none";
     ph2 -= d;
     log = "damage";
     pp1 += floor(random(0,5));
+    uc1 -= floor(random(0,2));
     ps1 -= 3;
     ps2 += floor(random(0,7));
     speed();
@@ -43,23 +50,39 @@ let dc2 = function damagecount2(){
     document.getElementById("attackeffectm2").style.display = "none";
     target = document.getElementById("anime2");
             target.className = "";
+    document.getElementById("clocku").style.display = "none";
     ph1 -= d;
     log = "damage";
     pp2 += floor(random(0,5));
+    uc2 -= floor(random(0,2));
     ps2 -= 3;
     ps1 += floor(random(0,7));
     speed();
 }
+let ee = function effectend(){
+    target = document.getElementById("attackeffectr1");
+            target.className = "";
+    target = document.getElementById("attackeffectm1");
+            target.className = "";
+    target = document.getElementById("anime1");
+            target.className = "";
+    target = document.getElementById("attackeffectr2");
+            target.className = "";
+    target = document.getElementById("attackeffectm2");
+            target.className = "";
+    target = document.getElementById("anime2");
+            target.className = "";
+}
 let aer = function attackeffectr(){
     if(t == 0){
         target = document.getElementById("attackeffectr1");
-        if (target.className == null || target.className=="") {
+        if (target.className === "" || target.className === null) {
             target.className = "active";
         }
     }
     if(t == 1){
         target = document.getElementById("attackeffectr2");
-        if (target.className == null || target.className=="") {
+        if (target.className === "" || target.className === null) {
             target.className = "active";
         }
     }
@@ -67,36 +90,38 @@ let aer = function attackeffectr(){
 let aem = function attackeffectm(){
     if(t == 0){
         target = document.getElementById("attackeffectm1");
-        if (target.className == null || target.className=="") {
+        if (target.className === "" || target.className === null) {
             target.className = "active";
         }
     }
     if(t == 1){
         target = document.getElementById("attackeffectm2");
-        if (target.className == null || target.className=="") {
+        if (target.className === "" || target.className === null) {
             target.className = "active";
         }
     }
 };
 let cs1 = function clockskill1(){
     target = document.getElementById("clock1");
-    if (target.className == null || target.className=="") {
+    if (target.className === "" || target.className === null) {
         target.className = "skill";
     }
     d = floor(random(3,6));
     ph2 -= d;
     log = "damage";
     ps1 += floor(random(1,4));
+    uc1 -= 1;
 };
 let cs2 = function clockskill2(){
     target = document.getElementById("clock2");
-    if (target.className == null || target.className=="") {
+    if (target.className === "" || target.className === null) {
         target.className = "skill";
     }
     d = floor(random(3,6));
     ph1 -= d;
     log = "damage";
     ps2 += floor(random(1,4));
+    uc2 -= 1;
 };
 let cse1 = function clockskillend1(){
     target = document.getElementById("clock1");
@@ -114,6 +139,64 @@ let cse2 = function clockskillend2(){
     ps1 += floor(random(0,7));
     speed();
 }
+let cu1 = function clockultimate1(){
+    target = document.getElementById("clocku");
+    if (target.className === "" || target.className === "two") {
+        target.className = "";
+    } else if (target.className === "three") {
+        target.className = "two";
+    } else if (target.className === "four") {
+        target.className = "three";
+    } else if (target.className === "five") {
+        target.className = "four";
+    } else if (target.className === "six") {
+        target.className = "five";
+    } else if (target.className === "seven") {
+        target.className = "six";
+    }
+    target = document.getElementById("anime1");
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
+        }
+    aer();
+    d = floor(random(pa1,paa1+1));
+    target = document.getElementById("clocku");
+    if (target.className === "") {
+        setTimeout(dc1,1000);
+    } else {
+        setTimeout(ee,1000);
+        ph2 -= d;
+    }
+}
+let cu2 = function clockultimate2(){
+    target = document.getElementById("clocku");
+    if (target.className === "" || target.className === "two") {
+        target.className = "";
+    } else if (target.className === "three") {
+        target.className = "two";
+    } else if (target.className === "four") {
+        target.className = "three";
+    } else if (target.className === "five") {
+        target.className = "four";
+    } else if (target.className === "six") {
+        target.className = "five";
+    } else if (target.className === "seven") {
+        target.className = "six";
+    }
+    target = document.getElementById("anime2");
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
+        }
+    aer();
+    d = floor(random(pa2,paa2+1));
+    target = document.getElementById("clocku");
+    if (target.className === "") {
+        setTimeout(dc2,1000);
+    } else {
+        setTimeout(ee,1000);
+        ph1 -= d;
+    }
+};
 
 function setup() {
     createCanvas(1500, 170);
@@ -121,10 +204,17 @@ function setup() {
     document.getElementById("attackeffectr2").style.display = "none";
     document.getElementById("clock1").style.display = "none";
     document.getElementById("clock2").style.display = "none";
+    document.getElementById("clocku").style.display = "none";
 }
 
 function draw() {
     background(250,250,250,50);
+    if (uc1 < 0) {
+        uc1 = 0;
+    }
+    if (uc2 < 0) {
+        uc2 = 0;
+    }
     if (ph1 <= 0) {
         w = 1;
     }
@@ -134,12 +224,12 @@ function draw() {
     if (w == 0) {
         textSize(30);
         fill("red");
-        text("HP: " + ph1 + " ,ATTACK: " + pa1 + "〜" + paa1 + " ,SPEED: " + ps1 + " ,POINTS: " + pp1 + " ,CHARACTER: " + pc1, 0, 50);
+        text("HP: " + ph1 + " ,ATTACK: " + pa1 + "〜" + paa1 + " ,SPEED: " + ps1 + " ,POINTS: " + pp1 + " ,ULTIMATE: " + uc1 + " ,CHARACTER: " + pc1, 0, 50);
         if (t == 0) {
             text("Player 1's turn", 0, 150);
         }
         fill("blue");
-        text("HP: " + ph2 + " ,ATTACK: " + pa2 + "〜" + paa2 + " ,SPEED: " + ps2 + " ,POINTS: " + pp2 + " ,CHARACTER: " + pc2, 0, 100);
+        text("HP: " + ph2 + " ,ATTACK: " + pa2 + "〜" + paa2 + " ,SPEED: " + ps2 + " ,POINTS: " + pp2 + " ,ULTIMATE: " + uc2 + " ,CHARACTER: " + pc2, 0, 100);
         if (t == 1) {
             text("Player 2's turn", 0, 150);
         }
@@ -202,8 +292,8 @@ function clickattack() {
     if (t == 0){
         log = "attack";
         target = document.getElementById("anime1");
-         if (target.className == null || target.className=="") {
-         target.className = "attack";
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
         }
         d = floor(random(pa1,paa1+1));
         if(am1 == 0){
@@ -215,8 +305,8 @@ function clickattack() {
     if (t == 1){
         log = "attack";
         target = document.getElementById("anime2");
-         if (target.className == null || target.className=="") {
-         target.className = "attack";
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
         }
         d = floor(random(pa2,paa2+1));
         if(am2 == 0){
@@ -259,6 +349,28 @@ function clickultimate() {
     if (w !== 0) {
         return;
     }
+    if (t == 0){
+        if(uc1 == 0){
+            log = "ultimate";
+            uc1 = ucm1;
+            if(pc1 == "clock"){
+                clockultimate();
+            }
+        } else {
+            log = "not enough points";
+        }
+    }
+    if (t == 1){
+        if(uc2 == 0){
+            log = "ultimate";
+            uc2 = ucm2;
+            if(pc2 == "clock"){
+                clockultimate();
+            }
+        } else {
+            log = "not enough points";
+        }
+    }
 }
 
 function clickclock() {
@@ -266,13 +378,15 @@ function clickclock() {
         return;
     }
     if (t == 0) {
-        ph1 = 80;
+        ph1 = 160;
         ps1 = 10;
         pp1 = 0;
         pa1 = 5;
         paa1 = 10;
         pc1 = "clock";
         am1 = 0;
+        uc1 = 12;
+        ucm1 = 12;
         document.getElementById("anime1").style.setProperty(
             "--pi1-image",
             'url("clock.png")'
@@ -285,15 +399,21 @@ function clickclock() {
             "--pia1-image",
             'url("clocka.png")'
         );
+        document.getElementById("clocku").style.setProperty(
+            "--pia1-image",
+            'url("clocka.png")'
+        );
         t = 1;
     } else {
-        ph2 = 80;
+        ph2 = 160;
         ps2 = 10;
         pp2 = 0;
         pa2 = 5;
         paa2 = 10;
         pc2 = "clock";
         am2 = 0;
+        uc2 = 12;
+        ucm2 = 12;
         document.getElementById("anime2").style.setProperty(
             "--pi2-image",
             'url("clock.png")'
@@ -303,6 +423,10 @@ function clickclock() {
             'url("clocka.png")'
         );
         document.getElementById("clock2").style.setProperty(
+            "--pia2-image",
+            'url("clocka.png")'
+        );
+        document.getElementById("clocku").style.setProperty(
             "--pia2-image",
             'url("clocka.png")'
         );
@@ -334,5 +458,36 @@ function clockskill() {
         setTimeout(cs2,2000);
         setTimeout(cs2,3000);
         setTimeout(cse2,3500);
+    }
+}
+
+function clockultimate() {
+    if (t == 0) {
+        const clock = document.getElementById("clocku");
+        clock.style.display = "";
+        requestAnimationFrame(() => {
+            clock.className = "seven";
+        });
+        document.getElementById("attackeffectr1").style.display = "";
+        setTimeout(cu1,6000);
+        setTimeout(cu1,8000);
+        setTimeout(cu1,10000);
+        setTimeout(cu1,12000);
+        setTimeout(cu1,14000);
+        setTimeout(cu1,16000);
+    }
+    if (t == 1) {
+        const clock = document.getElementById("clocku");
+        clock.style.display = "";
+        requestAnimationFrame(() => {
+            clock.className = "seven";
+        });
+        document.getElementById("attackeffectr2").style.display = "";
+        setTimeout(cu2,6000);
+        setTimeout(cu2,8000);
+        setTimeout(cu2,10000);
+        setTimeout(cu2,12000);
+        setTimeout(cu2,14000);
+        setTimeout(cu2,16000);
     }
 }
