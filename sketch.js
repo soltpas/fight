@@ -301,6 +301,11 @@ function clickattack() {
             document.getElementById("attackeffectr1").style.display = "";
         }
         setTimeout(dc1,3000);
+        if(am1 == 1){
+            setTimeout(aem,1000);
+            document.getElementById("attackeffectm1").style.display = "";
+        }
+        setTimeout(dc1,3000);
     }
     if (t == 1){
         log = "attack";
@@ -312,6 +317,11 @@ function clickattack() {
         if(am2 == 0){
             setTimeout(aer,1000);
             document.getElementById("attackeffectr2").style.display = "";
+        }
+        setTimeout(dc2,3000);
+        if(am2 == 1){
+            setTimeout(aem,1000);
+            document.getElementById("attackeffectm2").style.display = "";
         }
         setTimeout(dc2,3000);
     }
