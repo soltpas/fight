@@ -378,11 +378,11 @@ function clickclock() {
         return;
     }
     if (t == 0) {
-        ph1 = 160;
+        ph1 = 230;
         ps1 = 10;
         pp1 = 0;
-        pa1 = 5;
-        paa1 = 10;
+        pa1 = 10;
+        paa1 = 15;
         pc1 = "clock";
         am1 = 0;
         uc1 = 12;
@@ -405,11 +405,11 @@ function clickclock() {
         );
         t = 1;
     } else {
-        ph2 = 160;
+        ph2 = 230;
         ps2 = 10;
         pp2 = 0;
-        pa2 = 5;
-        paa2 = 10;
+        pa2 = 10;
+        paa2 = 15;
         pc2 = "clock";
         am2 = 0;
         uc2 = 12;
@@ -489,5 +489,68 @@ function clockultimate() {
         setTimeout(cu2,12000);
         setTimeout(cu2,14000);
         setTimeout(cu2,16000);
+    }
+}
+
+function clickfridge() {
+    if (w !== 0) {
+        return;
+    }
+    if (t == 0) {
+        ph1 = 430;
+        ps1 = 6;
+        pp1 = 0;
+        pa1 = 5;
+        paa1 = 10;
+        pc1 = "fridge";
+        am1 = 1;
+        uc1 = 15;
+        ucm1 = 15;
+        document.getElementById("anime1").style.setProperty(
+            "--pi1-image",
+            'url("fridge.png")'
+        );
+        document.getElementById("attackeffectr1").style.setProperty(
+            "--pia1-image",
+            'url("fridgea.png")'
+        );
+        document.getElementById("clock1").style.setProperty(
+            "--pia1-image",
+            'url("fridgea.png")'
+        );
+        document.getElementById("clocku").style.setProperty(
+            "--pia1-image",
+            'url("fridgea.png")'
+        );
+        t = 1;
+    } else {
+        ph2 = 430;
+        ps2 = 6;
+        pp2 = 0;
+        pa2 = 5;
+        paa2 = 10;
+        pc2 = "fridge";
+        am2 = 0;
+        uc2 = 15;
+        ucm2 = 15;
+        document.getElementById("anime2").style.setProperty(
+            "--pi2-image",
+            'url("fridge.png")'
+        );
+        document.getElementById("attackeffectr2").style.setProperty(
+            "--pia2-image",
+            'url("fridgea.png")'
+        );
+        document.getElementById("clock2").style.setProperty(
+            "--pia2-image",
+            'url("fridgea.png")'
+        );
+        document.getElementById("clocku").style.setProperty(
+            "--pia2-image",
+            'url("fridgea.png")'
+        );
+        m = 1;
+        document.querySelector(".choosecharacter").style.display = "none";
+        speed();
     }
 }
