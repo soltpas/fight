@@ -199,7 +199,7 @@ let cu2 = function clockultimate2(){
 };
 
 function setup() {
-    createCanvas(1300, 170);
+    createCanvas(1000, 170);
     document.getElementById("attackeffectr1").style.display = "none";
     document.getElementById("attackeffectr2").style.display = "none";
     document.getElementById("clock1").style.display = "none";
@@ -224,12 +224,12 @@ function draw() {
     if (w == 0) {
         textSize(30);
         fill("red");
-        text("HP: " + ph1 + " ,ATTACK: " + pa1 + "〜" + paa1 + " ,SPEED: " + ps1 + " ,POINTS: " + pp1 + " ,ULTIMATE: " + uc1 + " ,USING: " + pc1, 0, 50);
+        text("HP: " + ph1 + " ,ATK: " + pa1 + "〜" + paa1 + " ,SPD: " + ps1 + " ,PT: " + pp1 + " ,ULT: " + uc1 + " ,CHAR: " + pc1, 0, 50);
         if (t == 0) {
             text("Player 1's turn", 0, 150);
         }
         fill("blue");
-        text("HP: " + ph2 + " ,ATTACK: " + pa2 + "〜" + paa2 + " ,SPEED: " + ps2 + " ,POINTS: " + pp2 + " ,ULTIMATE: " + uc2 + " ,USING: " + pc2, 0, 100);
+        text("HP: " + ph2 + " ,ATK: " + pa2 + "〜" + paa2 + " ,SPD: " + ps2 + " ,PT: " + pp2 + " ,ULT: " + uc2 + " ,CHAR: " + pc2, 0, 100);
         if (t == 1) {
             text("Player 2's turn", 0, 150);
         }
