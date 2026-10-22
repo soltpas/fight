@@ -23,6 +23,7 @@ let d;
 let log = "";
 let target;
 let w = 0;
+let attackInProgress = false;
 let dc1 = function damagecount1(){
     target = document.getElementById("attackeffectr1");
             target.className = "";
@@ -40,6 +41,7 @@ let dc1 = function damagecount1(){
     ps1 -= 3;
     ps2 += floor(random(0,7));
     speed();
+    attackInProgress = false;
 }
 let dc2 = function damagecount2(){
     target = document.getElementById("attackeffectr2");
@@ -58,6 +60,7 @@ let dc2 = function damagecount2(){
     ps2 -= 3;
     ps1 += floor(random(0,7));
     speed();
+    attackInProgress = false;
 }
 let ee = function effectend(){
     target = document.getElementById("attackeffectr1");
@@ -286,9 +289,13 @@ function speed() {
 }
 
 function clickattack() {
-    if (w !== 0) {
+    if (w !== 0 || attackInProgress) {
         return;
     }
+    attackInProgress = true;
+    setTimeout(() => {
+        attackInProgress = false;
+    }, 3500);
     if (t == 0){
         log = "attack";
         target = document.getElementById("anime1");
@@ -300,7 +307,6 @@ function clickattack() {
             setTimeout(aer,1000);
             document.getElementById("attackeffectr1").style.display = "";
         }
-        setTimeout(dc1,3000);
         if(am1 == 1){
             setTimeout(aem,1000);
             document.getElementById("attackeffectm1").style.display = "";
@@ -318,7 +324,6 @@ function clickattack() {
             setTimeout(aer,1000);
             document.getElementById("attackeffectr2").style.display = "";
         }
-        setTimeout(dc2,3000);
         if(am2 == 1){
             setTimeout(aem,1000);
             document.getElementById("attackeffectm2").style.display = "";
@@ -520,17 +525,13 @@ function clickfridge() {
             "--pi1-image",
             'url("fridge.png")'
         );
-        document.getElementById("attackeffectr1").style.setProperty(
+        document.getElementById("attackeffectm1").style.setProperty(
             "--pia1-image",
             'url("fridgea.png")'
         );
-        document.getElementById("clock1").style.setProperty(
-            "--pia1-image",
-            'url("fridgea.png")'
-        );
-        document.getElementById("clocku").style.setProperty(
-            "--pia1-image",
-            'url("fridgea.png")'
+        document.getElementById("fridge1").style.setProperty(
+            "--pis1-image",
+            'url("fridges.png")'
         );
         t = 1;
     } else {
@@ -547,17 +548,13 @@ function clickfridge() {
             "--pi2-image",
             'url("fridge.png")'
         );
-        document.getElementById("attackeffectr2").style.setProperty(
+        document.getElementById("attackeffectm2").style.setProperty(
             "--pia2-image",
             'url("fridgea.png")'
         );
-        document.getElementById("clock2").style.setProperty(
-            "--pia2-image",
-            'url("fridgea.png")'
-        );
-        document.getElementById("clocku").style.setProperty(
-            "--pia2-image",
-            'url("fridgea.png")'
+        document.getElementById("fridge2").style.setProperty(
+            "--pis2-image",
+            'url("fridges.png")'
         );
         m = 1;
         document.querySelector(".choosecharacter").style.display = "none";
