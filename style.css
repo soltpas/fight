@@ -81,7 +81,7 @@ justify-content: center;
 #anime1.attack {
     height: 300px;
     width: 300px;
-    background-image: var(--pi1-image);
+    background-image: var(--piaa1-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -92,7 +92,7 @@ justify-content: center;
 #anime2.attack{
     height: 300px;
     width: 300px;
-    background-image: var(--pi2-image);
+    background-image: var(--piaa2-image);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -163,7 +163,8 @@ justify-content: center;
     background-position: center;
     position: relative;
     left: calc(50% - 300px);
-    transition: transform 1s;
+    transform: scaleX(-1);
+    transition: left 1s;
 }
 #attackeffectm2.active{
     height: 400px;
@@ -174,7 +175,7 @@ justify-content: center;
     background-position: center;
     position: relative;
     left: calc(0%);
-    transition: transform 1s;
+    transition: left 1s;
 }
 #attackeffectm1{
     height: 400px;
@@ -185,7 +186,7 @@ justify-content: center;
     background-position: center;
     position: relative;
     left: calc(50% - 300px);
-    transition: transform 1s;
+    transition: left 1s;
 }
 #attackeffectm1.active{
     height: 400px;
@@ -196,7 +197,7 @@ justify-content: center;
     background-position: center;
     position: relative;
     left: calc(60% + 200px);
-    transition: transform 1s;
+    transition: left 1s;
 }
 
 #clock1{
@@ -342,7 +343,39 @@ justify-content: center;
     transform-origin: center center;
     transition: transform 6s, left 6s;
 }
+#fridge1,
+#fridge2{
+    height: 400px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    transition: transform 1s;
+}
 #fridge1{
+    background-image: var(--pis1-image);
+    left: calc(50% - 300px);
+}
+#fridge2{
+    background-image: var(--pis2-image);
+    left: calc(50% + 100px);
+    transform: scaleX(-1);
+}
+
+#fridge2.skill{
+    height: 400px;
+    width: 400px;
+    background-image: var(--pis2-image);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    left: calc(0%);
+    transition: left 1s;
+}
+
+#fridge1.skill{
     height: 400px;
     width: 400px;
     background-image: var(--pis1-image);
@@ -350,6 +383,6 @@ justify-content: center;
     background-repeat: no-repeat;
     background-position: center;
     position: relative;
-    left: calc(50% - 300px);
-    transition: transform 1s;
+    left: calc(60% + 200px);
+    transition: left 1s;
 }

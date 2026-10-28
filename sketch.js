@@ -34,9 +34,14 @@ let dc1 = function damagecount1(){
     target = document.getElementById("anime1");
             target.className = "";
     document.getElementById("clocku").style.display = "none";
+    target = document.getElementById("fridge1");
+            target.className = "";
+    document.getElementById("fridge1").style.display = "none";
     ph2 -= d;
+    if (log !== "skill") {
+        pp1 += floor(random(0,5));
+    }
     log = "damage";
-    pp1 += floor(random(0,5));
     uc1 -= floor(random(0,2));
     ps1 -= 3;
     ps2 += floor(random(0,7));
@@ -53,9 +58,14 @@ let dc2 = function damagecount2(){
     target = document.getElementById("anime2");
             target.className = "";
     document.getElementById("clocku").style.display = "none";
+    target = document.getElementById("fridge2");
+            target.className = "";
+    document.getElementById("fridge2").style.display = "none";
     ph1 -= d;
+    if (log !== "skill") {
+        pp2 += floor(random(0,5));
+    }
     log = "damage";
-    pp2 += floor(random(0,5));
     uc2 -= floor(random(0,2));
     ps2 -= 3;
     ps1 += floor(random(0,7));
@@ -200,14 +210,32 @@ let cu2 = function clockultimate2(){
         ph1 -= d;
     }
 };
+let fs1 = function fridgeskill1(){
+    target = document.getElementById("fridge1");
+    if (target.className === "" || target.className === null) {
+        target.className = "skill";
+    }
+    ps2 -= 10;
+};
+let fs2 = function fridgeskill2(){
+    target = document.getElementById("fridge2");
+    if (target.className === "" || target.className === null) {
+        target.className = "skill";
+    }
+    ps1 -= 10;
+};
 
 function setup() {
     createCanvas(1000, 170);
     document.getElementById("attackeffectr1").style.display = "none";
     document.getElementById("attackeffectr2").style.display = "none";
+    document.getElementById("attackeffectm1").style.display = "none";
+    document.getElementById("attackeffectm2").style.display = "none";
     document.getElementById("clock1").style.display = "none";
     document.getElementById("clock2").style.display = "none";
     document.getElementById("clocku").style.display = "none";
+    document.getElementById("fridge1").style.display = "none";
+    document.getElementById("fridge2").style.display = "none";
 }
 
 function draw() {
@@ -343,6 +371,9 @@ function clickskill() {
             if(pc1 == "clock"){
                 clockskill();
             }
+            if(pc1 == "fridge"){
+                fridgeskill();
+            }
         } else {
             log = "not enough points";
         }
@@ -353,6 +384,9 @@ function clickskill() {
             pp2 -= 2;
             if(pc2 == "clock"){
                 clockskill();
+            }
+            if(pc2 == "fridge"){
+                fridgeskill();
             }
         } else {
             log = "not enough points";
@@ -406,6 +440,10 @@ function clickclock() {
             "--pi1-image",
             'url("clock.png")'
         );
+        document.getElementById("anime1").style.setProperty(
+            "--piaa1-image",
+            'url("clock.png")'
+        );
         document.getElementById("attackeffectr1").style.setProperty(
             "--pia1-image",
             'url("clocka.png")'
@@ -431,6 +469,10 @@ function clickclock() {
         ucm2 = 12;
         document.getElementById("anime2").style.setProperty(
             "--pi2-image",
+            'url("clock.png")'
+        );
+        document.getElementById("anime2").style.setProperty(
+            "--piaa2-image",
             'url("clock.png")'
         );
         document.getElementById("attackeffectr2").style.setProperty(
@@ -525,6 +567,10 @@ function clickfridge() {
             "--pi1-image",
             'url("fridge.png")'
         );
+        document.getElementById("anime1").style.setProperty(
+            "--piaa1-image",
+            'url("fridgeaa.png")'
+        );
         document.getElementById("attackeffectm1").style.setProperty(
             "--pia1-image",
             'url("fridgea.png")'
@@ -541,12 +587,16 @@ function clickfridge() {
         pa2 = 5;
         paa2 = 10;
         pc2 = "fridge";
-        am2 = 0;
+        am2 = 1;
         uc2 = 15;
         ucm2 = 15;
         document.getElementById("anime2").style.setProperty(
             "--pi2-image",
             'url("fridge.png")'
+        );
+        document.getElementById("anime2").style.setProperty(
+            "--piaa2-image",
+            'url("fridgeaa.png")'
         );
         document.getElementById("attackeffectm2").style.setProperty(
             "--pia2-image",
@@ -559,5 +609,38 @@ function clickfridge() {
         m = 1;
         document.querySelector(".choosecharacter").style.display = "none";
         speed();
+    }
+}
+
+function fridgeskill() {
+    if (t == 0) {
+        const fridge = document.getElementById("fridge1");
+        fridge.style.display = "";
+        requestAnimationFrame(() => {
+            fridge.className = "skill";
+        });
+        target = document.getElementById("anime1");
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
+        }
+        document.getElementById("fridge1").style.display = "";
+        d = floor(random(pa1,paa1+1));
+        setTimeout(fs1,1000);
+        setTimeout(dc1,3000);
+    }
+    if (t == 1) {
+        const fridge = document.getElementById("fridge2");
+        fridge.style.display = "";
+        requestAnimationFrame(() => {
+            fridge.className = "skill";
+        });
+        target = document.getElementById("anime2");
+        if (target.className === "" || target.className === null) {
+            target.className = "attack";
+        }
+        document.getElementById("fridge2").style.display = "";
+        d = floor(random(pa2,paa2+1));
+        setTimeout(fs2,1000);
+        setTimeout(dc2,3000);
     }
 }
